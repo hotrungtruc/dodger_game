@@ -1,5 +1,5 @@
 import pygame
-from utils.menu import Menu
+from utils import Menu, HighScoreManager
 from core import World
 from config import *
 
@@ -26,7 +26,7 @@ def run():
     
     menu = Menu(screen)
     in_menu = True
-
+    high_score_manager = HighScoreManager()
     # Hiển thị menu
     while in_menu:
         menu.draw()
@@ -90,7 +90,9 @@ def run():
 
         text = font.render("Score: {0}".format(world.score), 1, TEXT_COLOR)
         screen.blit(text, (5, 10))
-
+        top_score = high_score_manager.load_high_score()
+        top_score_text = font.render("Top Score: {0}".format(top_score), 1, TEXT_COLOR)
+        screen.blit(top_score_text, (5, 60))
         if world.is_game_over():
             game_over = font.render("Game Over", 1, TEXT_COLOR)
             screen.blit(game_over, (SCREEN_WiDTH / 3, SCREEN_HEIGHT / 2))
