@@ -16,17 +16,17 @@ def run():
     pygame.mixer.init()
 
     # Load game sounds and music
-    pygame.mixer.music.load("assets/musics_and_sounds/backgound.MP3")
-    pygame.mixer.music.set_volume(0.2)
+    pygame.mixer.music.load(SOUND_PATHS["background"])
+    pygame.mixer.music.set_volume(SOUND_VOLUMES["background"])
     
-    gameover_sound = pygame.mixer.Sound("assets/musics_and_sounds/gameover.WAV")
-    gameover_sound.set_volume(0.9) 
+    gameover_sound = pygame.mixer.Sound(SOUND_PATHS["gameover"])
+    gameover_sound.set_volume(SOUND_VOLUMES["gameover"]) 
 
-    button_sound = pygame.mixer.Sound("assets/musics_and_sounds/button_sound.MP3")
-    button_sound.set_volume(1) 
+    button_sound = pygame.mixer.Sound(SOUND_PATHS["button"])
+    button_sound.set_volume(SOUND_VOLUMES["button"]) 
 
-    menu_music = pygame.mixer.Sound("assets/musics_and_sounds/menu.MP3")
-    menu_music.set_volume(0.05) 
+    menu_music = pygame.mixer.Sound(SOUND_PATHS["menu"])
+    menu_music.set_volume(SOUND_VOLUMES["menu"]) 
 
     # Setup display and clock
     clock = pygame.time.Clock()

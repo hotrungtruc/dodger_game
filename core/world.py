@@ -1,8 +1,14 @@
 import pygame
 from core.player import Player
 from core.enemy import Enemy
+from core.explosion import Explosion
 from config import *
-from utils.helpers import HighScoreManager
+from utils import HighScoreManager
+
+pygame.init()
+pygame.mixer.init()
+explosion_sound = pygame.mixer.Sound(SOUND_PATHS["explosion"])
+explosion_sound.set_volume(SOUND_VOLUMES["explosion"])
 
 class World:
     """Represents the game world, managing the player, enemies, score, and input."""
@@ -18,6 +24,7 @@ class World:
         """Reset the game state, preparing for a new game."""
         self.player = Player()
         self.enemies = []
+        self.explosions = []
         self.gameOver = False
         self.score = 0
         self.enemy_counter = 0
@@ -52,11 +59,13 @@ class World:
             self.player.position = (player_x, player_y)
 
         # Update enemies
-        for e in self.enemies:
+        for e in self.enemies[:]:
             e.move()
             if self.player.did_hit(e.get_rect()):  # Check collision with player
+                self.explosions.append(Explosion(self.player.position, explosion_sound))
                 self.gameOver = True
-            if e.is_off_screen():  # Remove off-screen enemies
+                self.enemies.remove(e)
+            elif e.is_off_screen():  # Remove off-screen enemies
                 self.enemies.remove(e)
 
         # Spawn new enemies
@@ -69,12 +78,34 @@ class World:
         if self.gameOver:
             self.high_score_manager.save_high_score(self.score)
 
+        # Check and handle explosions between enemies
+        collided_enemies = set()
+        for i, enemy1 in enumerate(self.enemies):
+            for j, enemy2 in enumerate(self.enemies):
+                if i != j and enemy1.get_rect().colliderect(enemy2.get_rect()):
+                    collided_enemies.add(i)
+                    collided_enemies.add(j)
+                    # Create explosion between two enemies
+                    mid_x = (enemy1.position[0] + enemy2.position[0]) // 2
+                    mid_y = (enemy1.position[1] + enemy2.position[1]) // 2
+                    self.explosions.append(Explosion((mid_x, mid_y), explosion_sound))
+
+        # Remove collided enemies
+        self.enemies = [e for idx, e in enumerate(self.enemies) if idx not in collided_enemies]
+
+        # Update and remove explosions
+        for explosion in self.explosions[:]:
+            if explosion.finished:
+                self.explosions.remove(explosion)
+
     def draw(self, surface):
         """Render the game world, including background, player, and enemies."""
         surface.blit(self.background, (0, 0))
         self.player.draw(surface)
         for e in self.enemies:
             e.draw(surface)
+        for explosion in self.explosions:
+            explosion.draw(surface)
 
     def handle_keys(self, event):
         """Handle keyboard and mouse input for player movement."""
