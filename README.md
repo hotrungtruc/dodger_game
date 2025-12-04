@@ -1,110 +1,98 @@
 
 # Dodger Game 🎮
 
-**Dodger Game** là một trò chơi đơn giản được phát triển bằng Python với thư viện **Pygame**. Nhiệm vụ của người chơi là điều khiển nhân vật (player) để tránh các vật cản (enemy) rơi từ trên xuống. Điểm số sẽ tăng dần khi bạn sống sót lâu hơn!
+A simple dodge-the-obstacles game developed in Python using **Pygame**. Control your player character to avoid falling enemies and survive as long as possible while your score increases!
 
 ---
 
-## 🚀 Tính năng
-- **Điều khiển nhân vật**: Bằng bàn phím (W/A/S/D hoặc phím mũi tên) hoặc chuột.
-- **Hiệu ứng đồ họa**: Nhân vật được trang bị hiệu ứng lửa động.
-- **Nhạc nền và âm thanh**:
-  - Nhạc nền thư giãn.
-  - Hiệu ứng âm thanh khi thua.
-- **Tính điểm**: Điểm số tăng theo thời gian.
+## 🎮 Gameplay
+
+### Main Menu
+![Menu Screen](assets/images/menu_game.jpg)
+*Navigate the game menu to start playing or view high scores*
+
+### Gameplay Screen
+![Gameplay](assets/images/game_play.jpg)
+*Dodge enemies and survive! Watch your score increase as you avoid obstacles*
 
 ---
 
-## 📁 Cấu trúc dự án
-```plaintext
-project/
-├── assets/                    # Chứa các tài nguyên
-│   ├── images/                # Hình ảnh
-│   │   ├── player.png
-│   │   ├── enemy.png
-│   │   ├── background.png
-│   ├── musics_and_sounds/     # Âm thanh
-│       ├── background.mp3
-│       ├── gameover.WAV
-├── config.py                  # Cấu hình (biến cố định)
-├── main.py                    # Tệp chính để chạy game
-├── core/                      # Các thành phần chính của game
-│   ├── __init__.py            # Để đánh dấu thư mục là một module
-│   ├── player.py              # Lớp Player
-│   ├── enemy.py               # Lớp Enemy
-│   ├── world.py               # Lớp World
-├── utils/                     # Các tiện ích, hàm hỗ trợ
-│   ├── __init__.py
-│   ├── helpers.py             # Các hàm phụ trợ chung
-└── README.md                  # Hướng dẫn, mô tả dự án
-```
+## 🚀 Features
+- **Flexible Controls**: Use keyboard (W/A/S/D or arrow keys) or mouse to move
+- **Dynamic Graphics**: Smooth animations with fire effects
+- **Sound & Music**: Background music and sound effects
+- **Score System**: Points increase continuously while you survive
+- **High Score Tracking**: Your best score is automatically saved
 
 ---
 
-## 🛠️ Cài đặt
+## 🛠️ Installation
 
-### 1. Yêu cầu
+### Requirements
 - Python >= 3.8
-- Thư viện `pygame` 
+- pygame >= 2.0.0
 
-Cài đặt `pygame` bằng lệnh:
+Install dependencies:
 ```bash
-pip install pygame
+pip install -r requirements.txt
 ```
 
-### 2. Chạy trò chơi
-- Clone dự án về:
-```bash
-git clone <repository-url>
-```
-
-- Di chuyển đến thư mục dự án:
-```bash
-cd project
-```
-
-- Chạy tệp `main.py`:
+### Run the Game
 ```bash
 python main.py
 ```
 
 ---
 
-## 🎮 Cách chơi
-1. Sử dụng bàn phím:
-   - **W hoặc Mũi tên Lên**: Di chuyển lên.
-   - **S hoặc Mũi tên Xuống**: Di chuyển xuống.
-   - **A hoặc Mũi tên Trái**: Di chuyển sang trái.
-   - **D hoặc Mũi tên Phải**: Di chuyển sang phải.
-2. Hoặc điều khiển bằng chuột.
-3. Tránh va chạm với các vật cản.
-4. Nếu thua, nhấn **R** để chơi lại.
+## 🎮 How to Play
+- **W or Up Arrow**: Move up
+- **S or Down Arrow**: Move down
+- **A or Left Arrow**: Move left
+- **D or Right Arrow**: Move right
+- **Mouse**: Alternative control method
+- **R**: Restart after game over
+- **ESC**: Quit game
 
 ---
 
-## 📖 Thông tin thêm
-- **Ngôn ngữ lập trình**: Python
-- **Thư viện sử dụng**: Pygame
-- **Hiệu ứng âm thanh**: [Nguồn miễn phí](https://freesound.org)
+## 📁 Project Structure
+```
+dodger_game/
+├── assets/
+│   ├── images/              # Game graphics
+│   └── musics_and_sounds/   # Audio files
+├── core/                    # Core game modules
+│   ├── player.py
+│   ├── enemy.py
+│   ├── explosion.py
+│   └── world.py
+├── utils/                   # Utility functions
+│   ├── helpers.py
+│   └── menu.py
+├── config.py                # Game configuration
+├── main.py                  # Main entry point
+└── requirements.txt         # Dependencies
+```
 
 ---
 
-## 📜 Giấy phép
-Dự án này sử dụng giấy phép [MIT](LICENSE). Bạn có thể tự do sao chép, chỉnh sửa và phân phối.
+## 🛠️ Technologies
+- **Language**: Python 3.12
+- **Framework**: Pygame
+- **Audio**: Pygame mixer
 
 ---
 
-## 🛠️ Đóng góp
-Nếu bạn muốn đóng góp:
-1. Fork dự án.
-2. Tạo nhánh mới:
-   ```bash
-   git checkout -b feature/my-feature
-   ```
-3. Commit thay đổi:
-   ```bash
-   git commit -m "Add my feature"
-   ```
-4. Tạo Pull Request.
+## 📜 License
+This project is open source. Feel free to use, modify, and distribute.
 
-Cảm ơn bạn đã quan tâm đến dự án này! 🎉
+---
+
+## 🎯 Tips to Win
+- Use keyboard controls for precise movement
+- Watch for enemy patterns
+- Don't touch the screen edges
+- Collect achievements by lasting longer
+- Beat your high score!
+
+Enjoy the game! 🎉

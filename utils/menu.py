@@ -16,7 +16,7 @@ class Menu:
         self.screen = screen
         self.font = pygame.font.SysFont("bold", 60)  # Main font for menu text
         self.background = pygame.Surface((SCREEN_WiDTH, SCREEN_HEIGHT))
-        self.background = pygame.image.load("assets/images/menu_bg.jpg")
+        self.background = pygame.image.load("dodger_game\\assets\\images\\menu_bg.jpg")
         self.background = pygame.transform.scale(self.background, (SCREEN_WiDTH, SCREEN_HEIGHT))
         self.buttons = [
             {"label": "Start Game", "action": "start", "rect": pygame.Rect(0, 0, 0, 0)},

@@ -9,7 +9,7 @@ class Player:
         """Initialize the player with default size, speed, position, and load assets."""
         self.size = PLAYER_SIZE
         self.speed = PLAYER_SPEED
-        self.image = pygame.image.load('assets/images/player.png').convert_alpha()
+        self.image = pygame.image.load('dodger_game\\assets\\images\\player.png').convert_alpha()
         self.image = pygame.transform.scale(self.image, (self.size, self.size))
         self.position = (SCREEN_WiDTH / 2, SCREEN_HEIGHT - SCREEN_HEIGHT / 10)
         self.lasers = []  # Placeholder for future laser functionality

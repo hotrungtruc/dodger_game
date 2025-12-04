@@ -9,7 +9,7 @@ class Enemy:
         """Initialize the enemy with random size, speed, spawn position, and direction."""
         self.size = random.randint(ENEMY_MIN_SIZE, ENEMY_MAX_SIZE)
         self.speed = random.randint(ENEMY_MIN_SPEED, ENEMY_MAX_SPEED)
-        self.image = pygame.image.load('assets/images/enemy.png')
+        self.image = pygame.image.load('dodger_game\\assets\\images\\enemy.png').convert_alpha()
         self.image = pygame.transform.smoothscale(self.image, (self.size, self.size))
         
         # Randomly choose a spawn corner

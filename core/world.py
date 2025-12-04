@@ -16,7 +16,7 @@ class World:
     def __init__(self):
         """Initialize the game world with background, player, enemies, and score management."""
         self.reset()
-        self.background = pygame.image.load('assets/images/background.png')
+        self.background = pygame.image.load('dodger_game\\assets\\images\\background.png')
         self.background = pygame.transform.scale(self.background, (SCREEN_WiDTH, SCREEN_HEIGHT))
         self.high_score_manager = HighScoreManager()
 

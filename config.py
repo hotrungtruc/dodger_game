@@ -13,11 +13,11 @@ PLAYER_SIZE=50
 PLAYER_MAX_UP=100
 
 SOUND_PATHS = {
-    "explosion": "assets/musics_and_sounds/explosion.mp3",
-    "background": "assets/musics_and_sounds/background.MP3",
-    "gameover": "assets\musics_and_sounds\gameover.WAV",
-    "menu":"assets\musics_and_sounds\menu.MP3",
-    "button":"assets/musics_and_sounds/button_sound.MP3"
+    "explosion": "dodger_game\\assets\\musics_and_sounds\\explosion.MP3",
+    "background": "dodger_game\\assets\\musics_and_sounds\\background.MP3",
+    "gameover": "dodger_game\\assets\\musics_and_sounds\\gameover.WAV",
+    "menu":"dodger_game\\assets\\musics_and_sounds\\menu.MP3",
+    "button":"dodger_game\\assets\\musics_and_sounds\\button_sound.MP3"
 }
 
 # Set volumes

@@ -1,3 +1,3 @@
-from .player import Player
-from .enemy import Enemy
-from .world import World
+from core.world import World
+
+__all__ = ['World']
